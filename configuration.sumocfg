@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <input>
+    <net-file value="Map_Smartseille.net.xml" />
+    <route-files value="flows_s2_updated.rou.xml" />
+    <additional-files value="parkings_parking1.add.xml" />
+  </input>
+  <time>
+    <begin value="0" />
+    <end value="7200" />
+  </time>
+  <output>
+    <!-- Collect vehicle trip information -->
+    <tripinfo-output value="tripinfo.xml"/>
+    <!-- Collect emissions data -->
+    <emission-output value="emissions.xml"/>
+  </output>
+</configuration>

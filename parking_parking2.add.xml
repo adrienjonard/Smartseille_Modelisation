@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<additional>
+    <parkingArea id="parking2" lane="758926632#3_0" startPos="0" endPos="2">
+        <space x="691803.00" y="4799501.00" length="5" angle="315"/>
+        <space x="691808.00" y="4799506.00" length="5" angle="315"/>
+        <space x="691813.00" y="4799511.00" length="5" angle="315"/>
+        <space x="691818.00" y="4799516.00" length="5" angle="315"/>
+        <space x="691823.00" y="4799521.00" length="5" angle="315"/>
+        <space x="691828.00" y="4799526.00" length="5" angle="315"/>
+        <space x="691833.00" y="4799531.00" length="5" angle="315"/>
+        <space x="691838.00" y="4799536.00" length="5" angle="315"/>
+        <space x="691843.00" y="4799541.00" length="5" angle="315"/>
+        <space x="691848.00" y="4799546.00" length="5" angle="315"/>
+        <space x="691853.00" y="4799551.00" length="5" angle="315"/>
+        <space x="691858.00" y="4799556.00" length="5" angle="315"/>
+        <space x="691863.00" y="4799561.00" length="5" angle="315"/>
+        <space x="691868.00" y="4799566.00" length="5" angle="315"/>
+        <space x="691873.00" y="4799571.00" length="5" angle="315"/>
+        <space x="691878.00" y="4799576.00" length="5" angle="315"/>
+        <space x="691883.00" y="4799581.00" length="5" angle="315"/>
+        <space x="691888.00" y="4799586.00" length="5" angle="315"/>
+        <space x="691893.00" y="4799591.00" length="5" angle="315"/>
+        <space x="691898.00" y="4799596.00" length="5" angle="315"/>
+    </parkingArea>
+</additional>
