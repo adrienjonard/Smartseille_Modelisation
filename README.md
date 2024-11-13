@@ -1,7 +1,7 @@
 Pour lancer une simulation et visualiser les résultats, il faut d'abord vérifier que les bons fichiers sont présents dans le fichier configuration.sumocfg.
 Pour le Scénario 1 :
 
-    <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <input>
     <net-file value="Map_Smartseille.net.xml" />
@@ -22,7 +22,7 @@ Pour le Scénario 1 :
 
 Pour le scénario 2 : 
 
-  <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <input>
     <net-file value="Map_Smartseille.net.xml" />
