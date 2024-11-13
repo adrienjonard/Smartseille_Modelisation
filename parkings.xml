@@ -1,0 +1,5 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<additional>
+  
+  <parkingArea id="parking1" capacity="347" lane="758926632#3_0" startPos="0" endPos="80" demand="dynamic" />
+</additional>

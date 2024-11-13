@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<routes>
+  <!-- Définition des types de véhicules -->
+  <vType id="car" accel="2.6" decel="4.5" length="5" maxSpeed="16.67" />
+  <vType id="bus" accel="1.2" decel="3.0" length="12" maxSpeed="12.5" />
+  <vType id="delivery" accel="2.0" decel="3.5" length="8" maxSpeed="14.0" />
+  <vType id="bike" accel="1.5" decel="2.5" length="2" maxSpeed="8.0" />
+  <vType id="truck" accel="1.0" decel="2.5" length="12" maxSpeed="12.5" />
+  
+
+    <!-- Itinéraires -->
+    <route id="route1" edges="-1001238887#0 -1001238887#1 -1001238887#2" />
+    <route id="route2" edges="118808606#0 118808606#1 118808606#2 118808606#3 118808606#4" />
+    <route id="route3" edges="759642822 201377801#0 201377801#1" />
+    <route id="route4" edges="425742338#0 425742338#2 425742338#4 425742338#6" />
+    <route id="route5" edges="67298562#0 67298562#1 67298562#2" />
+    <route id="route6" edges="1072187925#0 1072187925#1" />
+    <route id="route7" edges="985155553#0 985155553#1" />
+    <route id="route8" edges="355037966#0 355037966#1 355037966#3 355037966#4" />
+    <route id="route9" edges="132346057#0 132346057#2 132346057#4" />
+    <route id="route10" edges="203892665#0 203892665#1" />
+    <route id="route11" edges="274621139#0 274621139#2 274621139#4" />
+  
+  <!-- Flux de trafics -->
+  <flow id="flow1" type="car" begin="0" end="3600" number="100" from="-1001238887#0" to="-1001238887#2" />
+    <flow id="flow2" type="car" begin="0" end="3600" number="80" from="118808606#0" to="118808606#4" />
+    <flow id="flow3" type="truck" begin="0" end="3600" number="20" from="759642822" to="201377801#1" />
+    <flow id="flow4" type="car" begin="0" end="3600" number="120" from="425742338#0" to="425742338#6" />
+    <flow id="flow5" type="bus" begin="0" end="3600" number="15" from="67298562#0" to="67298562#2" />
+    <flow id="flow6" type="car" begin="0" end="3600" number="100" from="1072187925#0" to="1072187925#1" />
+    <flow id="flow7" type="truck" begin="0" end="3600" number="10" from="985155553#0" to="985155553#1" />
+    <flow id="flow8" type="car" begin="0" end="3600" number="90" from="355037966#0" to="355037966#4" />
+    <flow id="flow9" type="bus" begin="0" end="3600" number="20" from="132346057#0" to="132346057#4" />
+    <flow id="flow10" type="car" begin="0" end="3600" number="60" from="203892665#0" to="203892665#1" />
+    <flow id="flow11" type="truck" begin="0" end="3600" number="5" from="274621139#0" to="274621139#4" />
+
+  <!-- Véhicules individuels -->
+  <vehicle id="car_1" type="car" route="route1" depart="5" />
+  <vehicle id="bus_1" type="bus" route="route2" depart="15" />
+  <vehicle id="delivery_1" type="delivery" route="route3" depart="30" />
+  <vehicle id="car_2" type="car" route="route4" depart="45" />
+  <vehicle id="bike_1" type="bike" route="route5" depart="50" />
+  
+</routes>

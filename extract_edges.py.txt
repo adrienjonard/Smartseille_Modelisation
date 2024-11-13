@@ -1,0 +1,25 @@
+from lxml import etree
+
+# Chemin du fichier réseau SUMO
+file_path = "C:/Users/adrie/OneDrive/Bureau/Modélisation/Map_Smartseille.net.xml"
+
+# Parse le fichier .net.xml
+tree = etree.parse(file_path)
+root = tree.getroot()
+
+# Extraire les identifiants des edges valides
+edges = []
+for edge in root.findall(".//edge"):
+    edge_id = edge.get("id")
+    if edge_id and not edge_id.startswith(":"):  # Exclure les edges internes
+        edges.append(edge_id)
+
+# Afficher les edges valides
+print("Edges valides dans le réseau :")
+for edge in edges:
+    print(edge)
+
+# Sauvegarder dans un fichier texte
+with open("edges_valides.txt", "w") as f:
+    for edge in edges:
+        f.write(edge + "\n")

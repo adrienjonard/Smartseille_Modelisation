@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-11-09 21:35:28 by Eclipse SUMO duarouter Version 1.21.0
+<duarouterConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="Map_Smartseille.net.xml"/>
+        <route-files value="flows.rou.xml"/>
+    </input>
+
+    <output>
+        <output-file value="flows_fixed.rou.xml"/>
+    </output>
+
+</duarouterConfiguration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="car" length="5.00" maxSpeed="13.89" accel="2.6" decel="4.5"/>
+    <vehicle id="flow1.0" type="car" depart="0.00">
+        <route edges="758926614#0 758926614#1 758926614#2 758926614#3 758926623#0 758926623#1 758926623#2 759179145#0 759179145#1 759179145#2 6310614#0 6310614#1 6310614#2 6310614#3 6310614#4 6310614#5 6310614#6 6310614#7 758926632#0 758926632#1 758926632#2 758926632#3 758926626"/>
+    </vehicle>
+    <vehicle id="flow1.1" type="car" depart="36.00">
+        <route edges="758926614#0 758926614#1 758926614#2 758926614#3 758926623#0 758926623#1 758926623#2 759179145#0 759179145#1 759179145#2 6310614#0 6310614#1 6310614#2 6310614#3 6310614#4 6310614#5 6310614#6 6310614#7 758926632#0 758926632#1 758926632#2 758926632#3 758926626"/>
+    </vehicle>
+    
+</routes>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- Vehicle Types -->
+    <vType id="car" length="5.00" maxSpeed="13.89" accel="2.6" decel="4.5" />
+    <vType id="truck" length="10.00" maxSpeed="8.33" accel="1.0" decel="3.0" />
+    <vType id="bus" length="12.00" maxSpeed="10.00" accel="1.2" decel="2.8" />
+    <vType id="bike" length="2.00" maxSpeed="4.50" accel="1.5" decel="2.0" />
+    <vType id="electric" length="5.00" maxSpeed="15.00" accel="3.0" decel="4.5" />
+
+    <!-- Dynamic Vehicle Flows -->
+    <vehicle id="flow1.0" type="car" depart="0.00">
+        <route edges="758926614#0 758926614#1 758926614#2 758926614#3 758926623#0 758926623#1 758926623#2 759179145#0" />
+    </vehicle>
+    <vehicle id="flow2.0" type="truck" depart="10.00">
+        <route edges="759179145#0 6310614#0 6310614#1 6310614#2 6310614#3 758926626" />
+    </vehicle>
+    <vehicle id="flow3.0" type="bus" depart="20.00">
+        <route edges="758926623#0 758926623#1 758926623#2 758926632#0 758926632#1" />
+    </vehicle>
+    <vehicle id="flow4.0" type="bike" depart="30.00">
+        <route edges="758926632#0 758926632#1 758926632#2 6310625#0 6310625#1" />
+    </vehicle>
+    <vehicle id="flow5.0" type="electric" depart="40.00">
+        <route edges="6310614#0 6310614#1 6310614#2 759179145#0 758926614#0" />
+    </vehicle>
+
+    <!-- Additional Flows for Congestion Simulation -->
+    <vehicle id="flow6.0" type="car" depart="50.00">
+        <route edges="98338697#0 49263618#1 758926623#0 758926623#1 758926623#2" />
+    </vehicle>
+    <vehicle id="flow7.0" type="truck" depart="60.00">
+        <route edges="758926622 460101507#0 460101507#1 1200615233" />
+    </vehicle>
+    <vehicle id="flow8.0" type="bike" depart="70.00">
+        <route edges="6310625#0 6310625#1 758926622" />
+    </vehicle>
+    <vehicle id="flow9.0" type="bus" depart="80.00">
+        <route edges="758926632#0 758926632#1 758926632#2" />
+    </vehicle>
+    <vehicle id="flow10.0" type="electric" depart="90.00">
+        <route edges="6310614#3 6310614#4 6310614#5 758926614#0" />
+    </vehicle>
+
+</routes>
