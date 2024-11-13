@@ -1,0 +1,92 @@
+import traci
+import pandas as pd
+import xml.etree.ElementTree as ET
+import matplotlib.pyplot as plt
+
+# Charger les capacités des parkings depuis le fichier XML
+parking_capacities = {}
+tree = ET.parse("parkings.xml")
+root = tree.getroot()
+for parking in root.findall("parkingArea"):
+    parking_id = parking.get("id")
+    capacity = int(parking.get("capacity"))
+    parking_capacities[parking_id] = capacity
+
+# Configuration SUMO
+sumoBinary = "sumo-gui"  
+sumoCmd = [
+    sumoBinary,
+    "-c", "configuration.sumocfg",
+    "--additional-files", "parking_parking1.add.xml",
+    "--emission-output", "emissions.xml",
+    "--tripinfo-output", "tripinfo.xml"
+]
+
+# Démarrer TraCI
+traci.start(sumoCmd)
+
+# Variables pour stocker les données
+parking_data = []  # Données des parkings
+emissions_data = []  # Émissions de CO2
+
+# Boucle principale de simulation
+while traci.simulation.getMinExpectedNumber() > 0:
+    traci.simulationStep()
+
+    # Récupérer l'état des parkings
+    for parking_id in traci.parkingarea.getIDList():
+        time = traci.simulation.getTime()
+        occupied = traci.parkingarea.getVehicleCount(parking_id)
+        capacity = parking_capacities.get(parking_id, 0)
+        parking_data.append({"time": time, "parking_id": parking_id, "occupied": occupied, "capacity": capacity})
+
+    # Récupérer les émissions de CO2 pour chaque véhicule
+    for vehicle_id in traci.vehicle.getIDList():
+        co2_emission = traci.vehicle.getCO2Emission(vehicle_id)
+        time = traci.simulation.getTime()
+        emissions_data.append({"time": time, "vehicle_id": vehicle_id, "co2_emission": co2_emission})
+
+# Fermer TraCI
+traci.close()
+
+# Convertir les données en DataFrame
+parking_df = pd.DataFrame(parking_data)
+emissions_df = pd.DataFrame(emissions_data)
+
+# Calculer le taux d'occupation
+parking_df['occupancy_rate'] = (parking_df['occupied'] / parking_df['capacity']) * 100
+
+# Charger le fichier tripinfo.xml pour analyser les trajets
+tripinfo_df = pd.read_xml("tripinfo.xml")
+
+# Sauvegarder les données en CSV
+parking_df.to_csv("parking_occupancy.csv", index=False)
+emissions_df.to_csv("emissions.csv", index=False)
+tripinfo_df.to_csv("tripinfo.csv", index=False)
+
+# Visualiser les résultats
+
+# 1. Évolution des taux d'occupation des parkings
+for parking_id, group in parking_df.groupby("parking_id"):
+    plt.plot(group["time"], group["occupancy_rate"], label=f"Parking {parking_id}")
+
+plt.xlabel("Temps (s)")
+plt.ylabel("Taux d'occupation (%)")
+plt.title("Évolution des taux d'occupation des parkings")
+plt.legend()
+plt.show()
+
+# 2. Émissions totales de CO2 au cours du temps
+emissions_total = emissions_df.groupby("time")["co2_emission"].sum()
+plt.plot(emissions_total.index, emissions_total.values)
+plt.xlabel("Temps (s)")
+plt.ylabel("CO2 (mg)")
+plt.title("Émissions totales de CO2 au cours du temps")
+plt.show()
+
+# 3. Distribution des durées de trajet
+plt.hist(tripinfo_df["duration"], bins=20, edgecolor="k")
+plt.xlabel("Durée du trajet (s)")
+plt.ylabel("Nombre de trajets")
+plt.title("Distribution des durées de trajet")
+plt.show()
